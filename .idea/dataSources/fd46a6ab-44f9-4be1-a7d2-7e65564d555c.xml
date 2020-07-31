@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataSource name="@localhost [2]">
+  <database-model serializer="dbm" dbms="MONGO" family-id="MONGO" format-version="4.19">
+    <root id="1">
+      <ServerVersion>4.2.8</ServerVersion>
+    </root>
+    <schema id="2" parent="1" name="admin"/>
+    <schema id="3" parent="1" name="config"/>
+    <schema id="4" parent="1" name="issuetracker"/>
+    <schema id="5" parent="1" name="local"/>
+    <schema id="6" parent="1" name="test">
+      <Current>1</Current>
+    </schema>
+    <schema id="7" parent="1" name="user_test"/>
+    <table id="8" parent="6" name="counters"/>
+    <table id="9" parent="6" name="deleted_issues"/>
+    <table id="10" parent="6" name="issues"/>
+    <column id="11" parent="8" name="_id">
+      <DataType>String(0)|12s</DataType>
+    </column>
+    <column id="12" parent="8" name="current">
+      <DataType>Double(0)|8s</DataType>
+    </column>
+    <column id="13" parent="10" name="_id">
+      <DataType>ObjectId(0)|12s</DataType>
+    </column>
+    <column id="14" parent="10" name="description">
+      <DataType>String(0)|12s</DataType>
+    </column>
+    <column id="15" parent="10" name="created">
+      <Position>1</Position>
+      <DataType>Date(0)|91s</DataType>
+    </column>
+    <column id="16" parent="10" name="due">
+      <Position>1</Position>
+      <DataType>BsonUndefined(0)|12s</DataType>
+    </column>
+    <column id="17" parent="10" name="effort">
+      <Position>2</Position>
+      <DataType>Double(0)|8s</DataType>
+    </column>
+    <column id="18" parent="10" name="id">
+      <Position>3</Position>
+      <DataType>Double(0)|8s</DataType>
+    </column>
+    <column id="19" parent="10" name="owner">
+      <Position>4</Position>
+      <DataType>String(0)|12s</DataType>
+    </column>
+    <column id="20" parent="10" name="status">
+      <Position>5</Position>
+      <DataType>String(0)|12s</DataType>
+    </column>
+    <column id="21" parent="10" name="title">
+      <Position>6</Position>
+      <DataType>String(0)|12s</DataType>
+    </column>
+  </database-model>
+</dataSource>
