@@ -1,14 +1,18 @@
+require('dotenv').config()
 /*1. connect database*/
 // 1.1. import mongoose
 const mongoose = require('mongoose')
+
 // 1.2. connect specific database
-mongoose.connect(process.env.PORT, {dbName: 'fatefour'});
+mongoose.connect(process.env.DATABASE_URL, { useNewUrlParser: true, useUnifiedTopology: true })
 // 1.3. get connection object
 const conn = mongoose.connection
 // 1.4. combine listener
 conn.on('connected', () => {
     console.log('db connect success!')
 })
+
+
 
 /*2. get Model*/
 // 2.1. Schema
