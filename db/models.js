@@ -2,7 +2,7 @@
 // 1.1. import mongoose
 const mongoose = require('mongoose')
 // 1.2. connect specific database
-mongoose.connect('mongodb+srv://fatefour:fatefour@cluster0.cytya.mongodb.net/', {dbName: 'fatefour'});
+mongoose.connect(process.env.PORT, {dbName: 'fatefour'});
 // 1.3. get connection object
 const conn = mongoose.connection
 // 1.4. combine listener
