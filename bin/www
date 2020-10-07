@@ -21,6 +21,10 @@ app.set('port', port);
 
 var server = http.createServer(app);
 
+//start up socketIO server
+require('../socketIO/socketio_server')(server);//require() returns a function, this function takes in 'server' as its parameter
+
+
 /**
  * Listen on provided port, on all network interfaces.
  */

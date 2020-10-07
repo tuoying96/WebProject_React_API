@@ -15,18 +15,38 @@ conn.on('connected', () => {
 
 
 /*2. get Model*/
-// 2.1. Schema
+// 2.1. define user Schema
 const userSchema = mongoose.Schema({
     username: {type: String, required: true}, 
     password: {type: String, required: true}, 
-    sex: {type: String, required: true}, 
+    sex: {type: String, enum: ['male', 'female', 'non-binary'], required: true, lowercase: true},
+    email: {
+      type: String,
+      unique: true,
+      lowercase: true,
+      required: true
+    },
     header: {type: String}, // header
     zipcode: {type: String}, // zipcode
     info: {type: String}, // introduction
     location: {type: String}, // prefer location
-    rent: {type: String} // rent
-})
-// 2.2. define Model
-const UserModel = mongoose.model('user', userSchema) // collection: users
-// 2.3. export Model
-exports.UserModel = UserModel
+    rent: {type: String}, // rent
+    housestyle: {type: String} // housestyle
+  })
+
+exports.UserModel = mongoose.model('user', userSchema) // collection: users
+
+
+
+// define chat Schema
+const chatSchema = mongoose.Schema({
+    from: {type: String, required: true}, // sender id
+    to: {type: String, required: true}, // reciever id
+    chat_id: {type: String, required: true}, // chat id, a string combined with 'from' and 'to'
+    content: {type: String, required: true}, // content
+    read: {type:Boolean, default: false}, // flag, if read or not
+    create_time: {type: Number} // creating time
+  })
+
+// export Model
+exports.ChatModel = mongoose.model('chat', chatSchema) // collection: chats
